@@ -72,5 +72,19 @@ public class ListActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.share){
+            String txt = "Stars";
+            String mimeType = "text/plain";
+            ShareCompat.IntentBuilder
+                    .from(this)
+                    .setType(mimeType)
+                    .setChooserTitle("Stars")
+                    .setText(txt)
+                    .startChooser();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
